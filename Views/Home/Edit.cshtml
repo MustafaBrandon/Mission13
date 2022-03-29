@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Bowler 
+
+<h2>Enter Bowler Information</h2>
+
+<form method="post" asp-action="Edit">
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="BowlerID">BowlerID:</label><input asp-for="BowlerID" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BowlerLastName">BowlerLastName:</label><input asp-for="BowlerLastName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerFirstName">BowlerFirstName:</label><input asp-for="BowlerFirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerMiddleInit">BowlerMiddleInit:</label><input asp-for="BowlerMiddleInit" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerAddress">BowlerAddress:</label><input asp-for="BowlerAddress" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerCity">BowlerCity:</label><input asp-for="BowlerCity" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerState">BowlerState:</label><input asp-for="BowlerState" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerZip">BowlerZip:</label><input asp-for="BowlerZip" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerPhoneNumber">BowlerPhoneNumber:</label><input asp-for="BowlerPhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="TeamID">TeamID:</label><input asp-for="TeamID" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerTotalPins">BowlerTotalPins:</label><input asp-for="BowlerTotalPins" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerGamesBowled">BowlerGamesBowled:</label><input asp-for="BowlerGamesBowled" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerCurrentAverage">BowlerCurrentAverage:</label><input asp-for="BowlerCurrentAverage" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="BowlerCurrentHcp">BowlerCurrentHcp:</label><input asp-for="BowlerCurrentHcp" class="form-control" />
+    </div>
+
+    <div class="float-right">
+        <input class="btn btn-primary" type="submit" value="Confirm" />
+    </div>
+
+</form>
+
+<br/>
+<br/>

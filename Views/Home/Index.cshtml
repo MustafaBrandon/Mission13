@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model mainIndex
+
+<h1>Bowler Contact Page</h1>
+
+<div class="row">
+
+    <div class="col-lg-3 col-md-3">
+        <h6>Select a Team to Narrow</h6>
+        <div class="text-center d-grid ">
+            <a class="btn btn-outline-secondary text-center" asp-controller="Home" asp-action="Index" asp-route-team="">All</a>
+            <br />
+            @foreach (string t in Model.teams)
+            {
+                <a class=@(Model.currentTeam == t? " btn btn-primary btn-outline-primary  text-center" : "btn btn-outline-secondary  text-center")
+                   asp-controller="Home" asp-action="Index" asp-route-team="@t">@t</a>
+                <br />
+            }
+        </div>
+        <br />
+        <form method="get" asp-action="Add">
+            <button type="submit">Add a new bowler</button>
+        </form>
+    </div>
+    
+    <div class=" col-lg-9 col-md-9">
+        @if (Model.currentTeam != "")
+        {
+            <h6 class="text-center">Showing bowlers from @Model.currentTeam</h6>
+        }
+        <table class="table table-active table-bordered">
+            <tr>
+                <th>Bowler ID</th>
+                <th>Full Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip</th>
+                <th>Phone Number</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+
+            @foreach (Bowler b in Model.bowlers)
+            {
+                <tr>
+                    <td>@b.BowlerID</td>
+                    <td>@b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName</td>
+                    <td>@b.BowlerAddress</td>
+                    <td>@b.BowlerCity</td>
+                    <td>@b.BowlerState</td>
+                    <td>@b.BowlerZip</td>
+                    <td>@b.BowlerPhoneNumber</td>
+                    <td>
+                        <form method="get" asp-action="Edit">
+                            <input type="hidden" name="bowler" value="@b.BowlerID" />
+                            <button type="submit">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="get" asp-action="Delete">
+                            <input type="hidden" name="b" value="@b.BowlerID" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    </div>
+
